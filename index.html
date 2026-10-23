@@ -133,17 +133,13 @@
   .reveal.in{opacity:1; transform:translateY(0);}
 
   /* ============ HERO ============ */
-  .hero{ position:relative; min-height:94vh; display:flex; align-items:center; padding-top:2rem; }
-  .hero-grid{ display:grid; grid-template-columns:1.18fr 0.82fr; gap:3rem; align-items:center; width:100%; }
-  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr; gap:2.2rem;} }
+  .hero{ position:relative; min-height:94vh; display:flex; align-items:stretch; padding-top:2rem; overflow:hidden; }
+  .hero-grid{ display:grid; grid-template-columns:1.18fr 0.82fr; grid-template-rows:1fr; gap:3rem; width:100%; height:100%; }
+  .hero-copy{ align-self:center; }
+  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr; grid-template-rows:auto auto; gap:2.2rem;} .portrait{height:56vh;} }
 
   .portrait{
-    position:relative; aspect-ratio:3/4; width:100%; max-width:380px; isolation:isolate;
-    border:1px solid var(--border-strong); border-radius:6px; overflow:hidden;
-    background:
-      radial-gradient(circle at 50% 38%, rgba(232,163,61,0.22), transparent 55%),
-      linear-gradient(165deg, #1a1c22, #0a0b0d 70%);
-    box-shadow:var(--shadow-lg);
+    position:relative; align-self:stretch; height:100%; width:100%; isolation:isolate; overflow:hidden;
   }
   .portrait .pt-zoom{
     position:absolute; inset:-6%;
@@ -151,26 +147,13 @@
   }
   @keyframes kenburns{ from{transform:scale(1) translate(0,0);} to{transform:scale(1.08) translate(-1%,-1.5%);} }
   .portrait .pt-zoom img{
-    width:100%; height:100%; object-fit:cover; object-position:50% 28%; display:block;
-    filter:grayscale(1) contrast(1.12) brightness(0.92);
-  }
-  .portrait .pt-duotone{
-    position:absolute; inset:-6%; mix-blend-mode:color; pointer-events:none;
-    background:linear-gradient(155deg, var(--accent-strong) 0%, var(--accent) 30%, #1a140a 78%, #000 100%);
+    width:100%; height:100%; object-fit:cover; object-position:50% 12%; display:block;
+    filter:contrast(1.05) saturate(1.04);
   }
   .portrait .pt-shade{
     position:absolute; inset:0; pointer-events:none;
-    background:linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 38%, rgba(0,0,0,0.3) 100%);
+    background:linear-gradient(to right, var(--bg) 0%, rgba(7,8,10,0) 14%), linear-gradient(to top, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 30%);
   }
-  .portrait .pt-mono{ font-family:"Big Shoulders Display",sans-serif; font-weight:900; font-size:7.5rem; color:rgba(242,241,236,0.08); letter-spacing:0.02em; }
-  .portrait .pt-frame-label{ position:absolute; top:0.9rem; left:0.9rem; display:flex; gap:0.5rem; align-items:center; z-index:2; }
-  .portrait .pt-frame-label span{ font-family:"IBM Plex Mono",monospace; font-size:0.62rem; letter-spacing:0.1em; color:var(--text-dim); border:1px solid var(--border-strong); padding:0.15rem 0.45rem; background:rgba(7,8,10,0.5); text-transform:uppercase; }
-  .portrait .pt-caption{
-    position:absolute; left:0; right:0; bottom:0; padding:1rem 1rem 0.9rem;
-    background:linear-gradient(to top, rgba(0,0,0,0.75), transparent);
-  }
-  .portrait .pt-caption b{ display:block; font-family:"Big Shoulders Display",sans-serif; font-weight:800; font-size:1.3rem; }
-  .portrait .pt-caption span{ font-family:"IBM Plex Mono",monospace; font-size:0.64rem; color:var(--text-dim); letter-spacing:0.05em; }
 
   .hero-copy .eyebrow-row{display:flex; align-items:center; gap:0.6rem; margin-bottom:0.9rem;}
   .hero-copy .eyebrow-row .pipe{width:18px; height:1px; background:var(--accent);}
@@ -390,13 +373,7 @@
 
     <div class="portrait">
       <div class="pt-zoom"><img src="assets/portrait.png" alt="Prasanna Yadav K" width="896" height="1200"></div>
-      <div class="pt-duotone"></div>
       <div class="pt-shade"></div>
-      <div class="pt-frame-label"><span>No. 01</span><span>Est. 2021</span></div>
-      <div class="pt-caption">
-        <b class="display">Prasanna Yadav K</b>
-        <span class="mono">Full-Stack Developer</span>
-      </div>
     </div>
   </div>
 </section>
